@@ -1,16 +1,27 @@
-from ai.gemini_client import generate
+from ai.gemini_client import ask_gemini
 
-def generate_presentation_text(topic, slides):
+
+def generate_slide_text(topic, slide_title):
 
     prompt = f"""
-    Create a presentation about {topic}
+    Write slide content.
 
-    Slides: {slides}
+    Topic: {topic}
 
-    Each slide should contain:
+    Slide title: {slide_title}
 
-    Title
-    Bullet points
+    Write 4 bullet points.
     """
 
-    return generate(prompt)
+    text = ask_gemini(prompt)
+
+    points = []
+
+    for line in text.split("\n"):
+
+        line = line.replace("-", "").strip()
+
+        if line:
+            points.append(line)
+
+    return points
