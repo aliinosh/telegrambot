@@ -1,6 +1,0 @@
-aiogram
-google-generativeai
-python-pptx
-requests
-python-dotenv
-pillow
