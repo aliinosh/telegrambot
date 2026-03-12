@@ -1,7 +1,7 @@
-from pptx.util import Inches
+from pptx.util import Pt
 
 
-def add_slide(prs, title, points):
+def build_slide(prs, title, points):
 
     layout = prs.slide_layouts[1]
 
@@ -9,14 +9,14 @@ def add_slide(prs, title, points):
 
     slide.shapes.title.text = title
 
-    tf = slide.placeholders[1].text_frame
+    text_frame = slide.placeholders[1].text_frame
+    text_frame.clear()
 
-    tf.clear()
+    for point in points:
 
-    for p in points:
-
-        paragraph = tf.add_paragraph()
-        paragraph.text = p
+        paragraph = text_frame.add_paragraph()
+        paragraph.text = point
         paragraph.level = 0
+        paragraph.font.size = Pt(24)
 
     return slide
