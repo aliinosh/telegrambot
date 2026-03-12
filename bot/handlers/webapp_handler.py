@@ -1,15 +1,30 @@
 from aiogram import Router
-from aiogram.types import Message
+from aiogram.types import Message, WebAppData
 
-from bot.keyboards.webapp_keyboard import webapp_keyboard
+from services.presentation_service import create_presentation
 
 router = Router()
 
 
-@router.message(lambda m: m.text == "🌐 Web App")
-async def open_webapp(message: Message):
+@router.message(lambda m: m.web_app_data)
+async def webapp_data(message: Message):
 
-    await message.answer(
-        "Open presentation creator:",
-        reply_markup=webapp_keyboard()
+    import json
+
+    data = json.loads(message.web_app_data.data)
+
+    topic = data["topic"]
+
+    slides = int(data["slides"])
+
+    images = data["images"]
+
+    path = create_presentation(
+        topic,
+        slides,
+        images
+    )
+
+    await message.answer_document(
+        document=open(path, "rb")
     )
