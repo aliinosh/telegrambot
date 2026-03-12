@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+
+  bot:
+    build: .
+    container_name: ai_presentation_bot
+    restart: always
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./storage:/app/storage
+
+    command: python main.py
+
+    depends_on:
+      - database
+
+  database:
+    image: postgres:15
+    container_name: ai_bot_db
+    restart: always
+
+    environment:
+      POSTGRES_USER: botuser
+      POSTGRES_PASSWORD: botpassword
+      POSTGRES_DB: botdb
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+
+volumes:
+
+  postgres_data:
