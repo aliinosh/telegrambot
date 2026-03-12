@@ -27,3 +27,6 @@ def generate_presentation(slides):
     prs.save(path)
 
     return path
+    path = get_presentation_path()
+
+prs.save(path)
