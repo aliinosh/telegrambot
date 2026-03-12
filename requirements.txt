@@ -1,1 +1,6 @@
-
+aiogram
+python-dotenv
+google-generativeai
+python-pptx
+sqlalchemy
+aiohttp
