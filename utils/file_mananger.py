@@ -1,9 +1,21 @@
 import os
 
-def save_file(path, data):
 
-    with open(path, "wb") as f:
-        f.write(data)
+def ensure_folder(path):
 
-def file_exists(path):
-    return os.path.exists(path)
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
+def save_text(path, text):
+
+    ensure_folder(os.path.dirname(path))
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(text)
+
+
+def read_file(path):
+
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
