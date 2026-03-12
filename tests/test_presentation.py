@@ -1,13 +1,17 @@
 from presentation.ppt_generator import generate_presentation
 
 
-def test_ppt():
+def test_ppt_generation():
 
     slides = [
 
         {
-            "title": "Test",
-            "points": ["A", "B", "C"]
+            "title": "Test Slide",
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3"
+            ]
         }
 
     ]
