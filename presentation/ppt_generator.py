@@ -2,7 +2,7 @@ import os
 
 from presentation.template_manager import create_presentation
 from presentation.slide_builder import build_slide
-
+from storage.storage_manager import get_presentation_path
 
 OUTPUT_FOLDER = "storage/presentations"
 
