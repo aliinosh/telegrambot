@@ -5,7 +5,8 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-def generate(prompt):
+
+def ask_gemini(prompt):
 
     response = model.generate_content(prompt)
 
