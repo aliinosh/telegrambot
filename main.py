@@ -4,7 +4,9 @@ from bot.handlers.presentation_handler import router as presentation_router
 from bot.handlers.assignment_handler import router as assignment_router
 from bot.handlers.settings_handler import router as settings_router
 from bot.handlers.webapp_handler import router as webapp_router
+from storage.storage_manager import init_storage
 
+init_storage()
 
 dp.include_router(start_router)
 dp.include_router(language_router)
