@@ -1,9 +1,14 @@
-APP_NAME = "AI Presentation Bot"
+from pptx import Presentation
+from config import APP_NAME, MAX_SLIDES
 
-MAX_SLIDES = 25
+def create_presentation(title: str):
+    prs = Presentation()
 
-SUPPORTED_LANGUAGES = [
-    "uz",
-    "ru",
-    "en"
-]
+    # Title slide
+    slide_layout = prs.slide_layouts[0]
+    slide = prs.slides.add_slide(slide_layout)
+
+    slide.shapes.title.text = title
+    slide.placeholders[1].text = APP_NAME
+
+    return prs
