@@ -11,12 +11,10 @@ ASSIGNMENTS_DIR = os.path.join(BASE_DIR, "assignments")
 def init_storage():
 
     folders = [
-
         BASE_DIR,
         IMAGES_DIR,
         PRESENTATIONS_DIR,
         ASSIGNMENTS_DIR
-
     ]
 
     for folder in folders:
@@ -31,5 +29,12 @@ def generate_filename(prefix, ext):
 
 
 def get_image_path():
-
     return os.path.join(IMAGES_DIR, generate_filename("image", "png"))
+
+
+def get_presentation_path():
+    return os.path.join(PRESENTATIONS_DIR, generate_filename("presentation", "pptx"))
+
+
+def get_assignment_path():
+    return os.path.join(ASSIGNMENTS_DIR, generate_filename("assignment", "docx"))
