@@ -1,10 +1,9 @@
 from pptx import Presentation
 from config import APP_NAME, MAX_SLIDES
 
-def create_presentation(title: str):
+def create_presentation(title="Presentation"):
     prs = Presentation()
 
-    # Title slide
     slide_layout = prs.slide_layouts[0]
     slide = prs.slides.add_slide(slide_layout)
 
