@@ -14,7 +14,6 @@ def generate_presentation(slides):
     for slide in slides:
 
         title = slide.get("title")
-
         points = slide.get("points", [])
 
         build_slide(prs, title, points)
@@ -22,11 +21,8 @@ def generate_presentation(slides):
     if not os.path.exists(OUTPUT_FOLDER):
         os.makedirs(OUTPUT_FOLDER)
 
-    path = f"{OUTPUT_FOLDER}/presentation.pptx"
+    path = get_presentation_path()
 
     prs.save(path)
 
     return path
-    path = get_presentation_path()
-
-prs.save(path)
