@@ -1,5 +1,6 @@
 from pptx import Presentation
-from config import APP_NAME, MAX_SLIDES
+from config.constants import APP_NAME, MAX_SLIDES
+
 
 def create_presentation(title="Presentation"):
     prs = Presentation()
